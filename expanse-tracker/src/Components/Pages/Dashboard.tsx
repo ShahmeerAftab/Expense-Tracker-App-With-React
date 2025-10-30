@@ -36,6 +36,7 @@ const Dashboard = () => {
 
     if (data) {
       setTransactions(data);
+      console.log(transactions);
 
       const totalIncome = data
         .filter((item) => item.type === "income")
