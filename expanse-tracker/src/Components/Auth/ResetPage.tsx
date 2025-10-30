@@ -13,7 +13,7 @@ const ResetPage = () => {
   const submitHandle = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmit(true);
-
+    console.log(submit);
     const { data, error } = await supabase.auth.updateUser({
       password: password,
     });
@@ -25,6 +25,7 @@ const ResetPage = () => {
     if (error) {
       alert(error.message);
     } else {
+      console.log(data);
       alert("Password updated successfuly");
     }
   };
@@ -42,7 +43,7 @@ const ResetPage = () => {
         <div className="bg-gradient-to-br from-green-100 via-emerald-100 to-green-200 min-h-screen flex justify-center items-center px-4">
           <div className="bg-gradient-to-tr from-green-200 via-emerald-300 to-green-400 w-full max-w-[380px] sm:max-w-[420px] md:max-w-[440px] rounded-lg shadow-lg transform transition-all duration-500 hover:scale-[1.02] p-6 sm:p-8">
             {/* Title */}
-            <Heading label="Reset Password"/>
+            <Heading label="Reset Password" />
 
             {/* Input */}
             <div className="flex flex-col items-center gap-4">
@@ -61,7 +62,6 @@ const ResetPage = () => {
                 onChange={handleConfirm}
               />
 
-              
               {/* Button */}
               <Button type="submit" label="Update Password" />
             </div>

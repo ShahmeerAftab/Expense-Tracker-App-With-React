@@ -17,6 +17,7 @@ const ForgotPage = () => {
   const submitHandle = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmit(true);
+    console.log(submit);
 
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:5173/resetPage",
@@ -25,6 +26,7 @@ const ForgotPage = () => {
     if (error) {
       alert(error.message);
     } else {
+      console.log(data);
       alert(`Reset Link sent to your email "${email}"`);
       navigate("/reset");
     }
