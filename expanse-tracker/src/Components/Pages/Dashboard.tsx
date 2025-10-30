@@ -5,14 +5,24 @@ import PageTitle from "../UI/PageTitle";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 
+// ✅ Define TypeScript Interface for transactions
+interface Transaction {
+  id: string;
+  title: string;
+  amount: number;
+  type: "income" | "expense";
+  user_id: string;
+  created_at?: string;
+}
+
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [transactions, setTransactions] = useState<any[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [income, setIncome] = useState<number>(0);
   const [expense, setExpense] = useState<number>(0);
   const [balance, setBalance] = useState<number>(0);
 
-  // Fetch Data Function
+  // ✅ Fetch Data Function
   const fetchTransactions = async () => {
     const {
       data: { user },
@@ -36,15 +46,15 @@ const Dashboard = () => {
 
     if (data) {
       setTransactions(data);
-      console.log(transactions);
 
+      // ✅ Explicit typing in filter & reduce
       const totalIncome = data
-        .filter((item) => item.type === "income")
-        .reduce((sum, item) => sum + item.amount, 0);
+        .filter((item: Transaction) => item.type === "income")
+        .reduce((sum: number, item: Transaction) => sum + item.amount, 0);
 
       const totalExpense = data
-        .filter((item) => item.type === "expense")
-        .reduce((sum, item) => sum + item.amount, 0);
+        .filter((item: Transaction) => item.type === "expense")
+        .reduce((sum: number, item: Transaction) => sum + item.amount, 0);
 
       setIncome(totalIncome);
       setExpense(totalExpense);
@@ -52,7 +62,7 @@ const Dashboard = () => {
     }
   };
 
-  // useEffect for Fetch
+  // ✅ useEffect for Fetch
   useEffect(() => {
     fetchTransactions();
   }, []);
