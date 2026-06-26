@@ -1,34 +1,75 @@
-# Expense Tracker
+# 💰 Expense Tracker App
 
-A simple personal expense tracker built with React, TypeScript, and Supabase. Track income and expenses, view your balance, and search transaction history — all behind email/password authentication.
+A modern Expense Tracker application built with **React**, **TypeScript**, and **Supabase**. Users can securely manage their income and expenses, monitor their financial summary, and view transaction history through an intuitive dashboard.
 
-## Features
+## ✨ Features
 
-- Email/password signup & login (Supabase Auth)
-- Forgot password / reset password flow
-- Protected routes — dashboard, add transaction, and history require login
-- Add income/expense transactions
-- Dashboard with live balance, income, and expense totals
-- Searchable transaction history
+- User Authentication (Signup & Login)
+- Forgot Password & Reset Password
+- Add Income & Expense Transactions
+- Dashboard with Balance Summary
+- Transaction History
+- Search Transactions
+- Protected Routes
+- Responsive UI
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- React 19 + TypeScript
+- React 19
+- TypeScript
 - Vite
-- React Router v7
-- Tailwind CSS v4
-- Supabase (Auth + Postgres database)
+- Tailwind CSS
+- React Router
+- Supabase (Authentication & Database)
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### 1. Clone the Repository
 
-- Node.js 18+
-- A Supabase project ([supabase.com](https://supabase.com))
+```bash
+git clone <repository-url>
+```
 
-### Setup
+### 2. Install Dependencies
 
-1. Clone the repo and install dependencies:
+```bash
+npm install
+```
 
-   ```bash
-   npm install
+### 3. Configure Environment Variables
+
+Create a `.env` file and add:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### 4. Run the Development Server
+
+```bash
+npm run dev
+```
+
+## 📷 Preview
+
+<img width="1918" height="903" alt="Expense Tracker Preview" src="YOUR_SCREENSHOT_HERE" />
+
+## 📚 What I Learned
+
+- Authentication with Supabase
+- CRUD Operations
+- Protected Routes
+- State Management in React
+- Working with PostgreSQL Database
+- Building Responsive User Interfaces
+
+## 👨‍💻 Author
+
+**Shahmeer Aftab**
+
+MERN Stack Developer | Agentic AI Learner
+
+---
+
+⭐ If you like this project, consider giving it a star!
