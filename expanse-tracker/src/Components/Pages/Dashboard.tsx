@@ -5,10 +5,10 @@ import PageTitle from "../UI/PageTitle";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 
-// ✅ Define TypeScript Interface for transactions
+
 interface Transaction {
-  id: string;
-  title: string;
+  id: number;
+  description: string;
   amount: number;
   type: "income" | "expense";
   user_id: string;
@@ -22,7 +22,7 @@ const Dashboard = () => {
   const [expense, setExpense] = useState<number>(0);
   const [balance, setBalance] = useState<number>(0);
 
-  // ✅ Fetch Data Function
+  
   const fetchTransactions = async () => {
     const {
       data: { user },
@@ -47,7 +47,7 @@ const Dashboard = () => {
     if (data) {
       setTransactions(data);
 
-      // ✅ Explicit typing in filter & reduce
+      
       const totalIncome = data
         .filter((item: Transaction) => item.type === "income")
         .reduce((sum: number, item: Transaction) => sum + item.amount, 0);
@@ -62,7 +62,7 @@ const Dashboard = () => {
     }
   };
 
-  // ✅ useEffect for Fetch
+
   useEffect(() => {
     fetchTransactions();
   }, []);

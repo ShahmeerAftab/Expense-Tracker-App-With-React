@@ -28,7 +28,7 @@ const ForgotPage = () => {
     } else {
       console.log(data);
       alert(`Reset Link sent to your email "${email}"`);
-      navigate("/reset");
+      navigate("/resetPage");
     }
   };
 

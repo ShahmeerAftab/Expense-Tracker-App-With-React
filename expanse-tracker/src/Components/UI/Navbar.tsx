@@ -10,6 +10,7 @@ const Navbar = () => {
     if (error) {
       console.error("Logout error:", error.message);
     } else {
+      localStorage.removeItem("user");
       alert("You have been logged out!");
       navigate("/login");
     }
@@ -23,7 +24,7 @@ const Navbar = () => {
 
       <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mt-2 sm:mt-0">
         <Link
-          to="/"
+          to="/dashboard"
           className="text-white hover:bg-white/20 transition-all px-4 py-2 rounded-md font-medium text-center"
         >
           Dashboard
